@@ -6,7 +6,7 @@ In this assignment you’ll learn about:
 
 # Setup
 
-1. Install [nodejs](https://nodejs.org/en/download/) and [npm](https://www.npmjs.com/get-npm).
+1. Install [nodejs](https://nodejs.org/en/download/) (includes `npm`).
 2. Install `circom` following this [installation guide](https://docs.circom.io/getting-started/installation/). Once installed, ensure that you're using the correct version of `circom` by running `circom --version`. You should see `circom compiler 2.1.4` or later.
 3. Install `snarkjs`: run `npm install -g snarkjs@latest`.
 4. Install the `mocha test runner`: run `npm install -g mocha`.
