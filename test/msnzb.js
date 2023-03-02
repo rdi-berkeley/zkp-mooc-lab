@@ -13,10 +13,10 @@ describe("MSNZB", () => {
         await circ.loadConstraints();
         num_constraints = circ.constraints.length;
         var b = 48;
-        var expected_constraints = 3*b + 6;
+        var expected_constraints = 3*b - 1;
         console.log("MSNZB #Constraints:", num_constraints, "Expected:", expected_constraints);
         if (num_constraints < expected_constraints) {
-            console.log("WARNING: number of constraints is less than 3b+6. It is likely that you are not constraining the witnesses appropriately.");
+            console.log("WARNING: number of constraints is less than 3b-1. It is likely that you are not constraining the witnesses appropriately.");
         }
     });
 

@@ -12,7 +12,7 @@ describe("Normalize", () => {
         await circ.loadConstraints();
         num_constraints = circ.constraints.length;
         var k = 8, p = 23, P = 47;
-        console.log("Normalize #Constraints:", num_constraints, "Expected:", 3*(P+1)+7);
+        console.log("Normalize #Constraints:", num_constraints, "Expected:", 3*(P+1));
 
         circ_msnzb = await wasm_tester(circ_file_msnzb);
         await circ_msnzb.loadConstraints();

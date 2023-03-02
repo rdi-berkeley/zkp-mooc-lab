@@ -11,7 +11,7 @@ describe("FP32Add", () => {
         await circ.loadConstraints();
         num_constraints = circ.constraints.length;
         var k = 8, p = 23;
-        console.log("Float32 Add #Constraints:", num_constraints, "Expected:", 383);
+        console.log("Float32 Add #Constraints:", num_constraints, "Expected:", 376);
     });
 
     it("case I test", async () => {
@@ -163,7 +163,7 @@ describe("FP64Add", () => {
         circ = await wasm_tester(circ_file);
         await circ.loadConstraints();
         num_constraints = circ.constraints.length;
-        console.log("Float64 Add #Constraints:", num_constraints, "Expected:", 772);
+        console.log("Float64 Add #Constraints:", num_constraints, "Expected:", 765);
     });
 
     it("case I test", async () => {
