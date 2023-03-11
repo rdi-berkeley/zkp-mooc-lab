@@ -10,11 +10,11 @@ describe("RightShift", () => {
         circ = await wasm_tester(circ_file);
         await circ.loadConstraints();
         num_constraints = circ.constraints.length;
-        var shift = 24;
-        var expected_constraints = shift;
-        console.log("RightShift #Constraints:", num_constraints, "Expected:", shift);
+        var b = 48;
+        var expected_constraints = b;
+        console.log("RightShift #Constraints:", num_constraints, "Expected:", b);
         if (num_constraints < expected_constraints) {
-            console.log("WARNING: number of constraints is less than `shift`. It is likely that you are not constraining the witnesses appropriately.");
+            console.log("WARNING: number of constraints is less than `b`. It is likely that you are not constraining the witnesses appropriately.");
         }
     });
 
@@ -27,12 +27,16 @@ describe("RightShift", () => {
         await circ.assertOut(witness, {"y": "4903265"});
     });
 
-    it("should pass - large bitwidth", async () => {
+    it("should fail - large bitwidth", async () => {
         const input = {
             "x": "15087340228765024367",
         };
-        const witness = await circ.calculateWitness(input);
-        await circ.checkConstraints(witness);
-        await circ.assertOut(witness, {"y": "899275554941"});
+        try {
+            const witness = await circ.calculateWitness(input);
+            await circ.checkConstraints(witness);
+        } catch (e) {
+            return 0;
+        }
+        assert.fail("should have thrown an error");
     });
 });
