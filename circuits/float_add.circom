@@ -222,7 +222,9 @@ template RoundAndCheck(k, p, P) {
     // Case I: no overflow
     // compute (m + 2^{round_amt-1}) >> round_amt
     var m_prime = m + (1 << (round_amt-1));
-    component right_shift = RightShift(P+1, round_amt);
+    //// Although m_prime is P+1 bits long in no overflow case, it can be P+2 bits long
+    //// in the overflow case and the constraints should not fail in either case
+    component right_shift = RightShift(P+2, round_amt);
     right_shift.x <== m_prime;
     var m_out_1 = right_shift.y;
     var e_out_1 = e;

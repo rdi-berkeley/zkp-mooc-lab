@@ -11,7 +11,7 @@ describe("FP32Add", () => {
         await circ.loadConstraints();
         num_constraints = circ.constraints.length;
         var k = 8, p = 23;
-        console.log("Float32 Add #Constraints:", num_constraints, "Expected:", 400);
+        console.log("Float32 Add #Constraints:", num_constraints, "Expected:", 401);
     });
 
     it("case I test", async () => {
@@ -37,11 +37,11 @@ describe("FP32Add", () => {
     it("case II test 2", async () => {
         const input = {
             "e": ["176", "152"],
-            "m": ["13291872", "15152854"],
+            "m": ["16777215", "16777215"],
         };
         const witness = await circ.calculateWitness(input);
         await circ.checkConstraints(witness);
-        await circ.assertOut(witness, {"e_out": "176", "m_out": "13291873"});
+        await circ.assertOut(witness, {"e_out": "177", "m_out": "8388608"});
     });
 
     it("case II test 3", async () => {
@@ -163,7 +163,7 @@ describe("FP64Add", () => {
         circ = await wasm_tester(circ_file);
         await circ.loadConstraints();
         num_constraints = circ.constraints.length;
-        console.log("Float64 Add #Constraints:", num_constraints, "Expected:", 818);
+        console.log("Float64 Add #Constraints:", num_constraints, "Expected:", 819);
     });
 
     it("case I test", async () => {

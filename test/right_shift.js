@@ -10,7 +10,7 @@ describe("RightShift", () => {
         circ = await wasm_tester(circ_file);
         await circ.loadConstraints();
         num_constraints = circ.constraints.length;
-        var b = 48;
+        var b = 49;
         var expected_constraints = b;
         console.log("RightShift #Constraints:", num_constraints, "Expected:", b);
         if (num_constraints < expected_constraints) {
