@@ -17,7 +17,7 @@ template Num2Bits(b) {
         bits[i] <-- (in >> i) & 1;
     }
 
-    // Now, contrain each bit to be 0 or 1.
+    // Now, constrain each bit to be 0 or 1.
     for (var i = 0; i < b; i++) {
         // Use `===` to enforce a rank-1 constraint (R1C) on signals.
         bits[i] * (1 - bits[i]) === 0;
